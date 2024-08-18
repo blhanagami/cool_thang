@@ -1,3 +1,15 @@
+# TODO list
+- [ ] Make it deploy (vercel)
+- [ ] scaffold basic ui with mock data
+- [ ] set up a database (vercel postgres)
+- [ ] attach a database UI
+- [ ] add authentication (clerk)
+- [ ] add image upload
+- [ ] error management (sentry)
+- [ ] routing/image page (parallel route)
+- [ ] delete button (server actions)
+- [ ] analytics (posthog)
+- [ ] ratelimiting (upstash)
 # Create T3 App
 
 This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
