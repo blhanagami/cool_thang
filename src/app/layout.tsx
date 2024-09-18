@@ -16,6 +16,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${GeistSans.variable}`}>
         <div className="w-full">First Layout</div>
+        <button className="btn">Button</button>
        {children}
       </body>
     </html>
