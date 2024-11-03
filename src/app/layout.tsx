@@ -1,11 +1,14 @@
 import "~/styles/globals.css";
+import "@uploadthing/react/styles.css";
+
 
 import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
 
 //import { ClerkProvider }from "@clerk/nextjs";
-
 import { ClerkProvider, SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
+import { UploadButton } from "~/utils/uploadthing";
+
 
 
 export const metadata: Metadata = {
@@ -26,6 +29,7 @@ export default function RootLayout({
             <SignInButton />
           </SignedOut>
           <SignedIn>
+            <UploadButton endpoint= "imageUploader" />
             <UserButton />
           </SignedIn>
         </header>
