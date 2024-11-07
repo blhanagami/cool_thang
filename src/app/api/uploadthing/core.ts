@@ -1,6 +1,8 @@
 import { createUploadthing, type FileRouter } from "uploadthing/next";
 import { UploadThingError } from "uploadthing/server";
 import { auth } from "@clerk/nextjs/server";
+import { images } from "~/server/db/schema";
+import { db } from "~/server/db";
 const f = createUploadthing();
 
 // const auth = (req: Request) => ({ id: "fakeId" }); // Fake auth function
@@ -25,6 +27,11 @@ export const ourFileRouter = {
       console.log("Upload complete for userId:", metadata.userId);
 
       console.log("file url", file.url);
+
+      await db.insert(images).values({
+        name: file.name,
+        url:file.url,
+      })
 
       // !!! Whatever is returned here is sent to the clientside `onClientUploadComplete` callback
       return { userId: metadata.userId };
