@@ -2,10 +2,12 @@ import "server-only";
 import { db } from "./db";
 import { auth } from "@clerk/nextjs/server";
 
-export async function getMyImages() {
+export async function getMyImages(): Promise<any[] | null> {
     const user = auth();
 
-    if (!user.userId) throw new Error("Unauthorized");
+    if (!user.userId) {
+      return null;
+    };
 
 
     const images = await db.query.images.findMany({
