@@ -20,7 +20,7 @@ export default async function HomePage() {
   return (
     <main className="">
       <div className="flex flex-wrap gap-4">
-        {images != null && images.map((image, index) => (
+        {images?.map((image, index) => (
           <div key={image.id} className="w-48 flex-col">
             <img src={image.url} />
             <div>{image.name}</div>
@@ -30,3 +30,18 @@ export default async function HomePage() {
     </main>
   );
 }
+
+/*
+Deleted this in line 23:
+
+images != null &&
+
+if we leave this in, typescript is telling us there is a more efficient way to do this,
+we are breaking a linting rule.
+
+Lint is telling us if we use any type here, we will not be able to use any of the built in stuff
+against the datatype.
+
+question mark means that if anything null or undefined, you will do the operation
+ behind it. It means if it is not an image, do nothing.
+*/
