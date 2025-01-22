@@ -6,6 +6,7 @@ import { type Metadata } from "next";
 //import { ClerkProvider }from "@clerk/nextjs";
 import { ClerkProvider, SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
 import UploadThingButton from "./_components/button";
+import MyButton from "./MyButton";
 // import { UploadButton } from "~/utils/uploadthing";
 
 export const metadata: Metadata = {
@@ -29,6 +30,7 @@ export default function RootLayout({
             <UploadThingButton />
             <UserButton />
           </SignedIn>
+          
         </header>
         <main>{children}</main>
       </body>
